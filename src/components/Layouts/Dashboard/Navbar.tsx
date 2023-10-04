@@ -87,8 +87,6 @@ const ThemeToggle: React.FC = () => {
         },
     ];
 
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
-
     return (
         <Dropdown
             menu={{
@@ -100,7 +98,7 @@ const ThemeToggle: React.FC = () => {
             trigger={['click']}
         >
             <span style={{marginRight: 15, "width":"20px","height":"100%"}}>
-                {theme === "system"? (systemTheme.matches ? (<IconMoon/>):(<IconSun/>)) : (theme === 'light' ? (<IconSun/>):(<IconMoon/>))}
+                {theme === "system"? (window.matchMedia('(prefers-color-scheme: dark)').matches ? (<IconMoon/>):(<IconSun/>)) : (theme === 'light' ? (<IconSun/>):(<IconMoon/>))}
             </span>
         </Dropdown>
     );

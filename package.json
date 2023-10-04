@@ -11,10 +11,10 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.0",
     "@ant-design/icons": "^5.2.6",
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "antd": "^5.9.4",
-    "dayjs": "^1.11.8",
-    "emotion-reset": "^3.0.1",
-    "lucide-react": "^0.279.0",
     "next": "latest",
     "next-intl": "2.15.0-beta.5",
     "next-themes": "^0.2.1",

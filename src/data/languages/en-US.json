@@ -1,0 +1,14 @@
+{
+  "site": {
+    "title": "AntNext",
+		"desc": "Using Ant-Design 5 with Next.js 13 and Tailwind CSS and Styled Components (Emotion)"
+  },
+	"sidebar": {
+		"dashboard": "Dashboard"
+	},
+	"theme": {
+		"light": "light",
+		"dark": "dark",
+		"system": "system"
+	}
+}

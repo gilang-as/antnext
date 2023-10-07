@@ -5,6 +5,8 @@ const withNextIntl = require('next-intl/plugin')(
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // Enable source map if needed
+    productionBrowserSourceMaps: true,
     reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
     transpilePackages: ['antd'],
     swcMinify: true,

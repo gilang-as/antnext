@@ -2,28 +2,19 @@
 
 import React, { useState } from 'react';
 import { useServerInsertedHTML } from 'next/navigation';
-import { StyleProvider, createCache as antdCreateCache, extractStyle } from '@ant-design/cssinjs';
-
+import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+import type Entity from '@ant-design/cssinjs/es/Cache';
 if (!process.browser) React.useLayoutEffect = React.useEffect;
 
 const AntdStyleRegistry = ({ children }: { children: React.ReactNode }) => {
-  const [antdCache] = useState(() => antdCreateCache());
+    const cache = React.useMemo<Entity>(() => createCache(), []);
 
-  const render = <>{children}</>;
+    useServerInsertedHTML(() => (
+        <style id="antd" dangerouslySetInnerHTML={{ __html: extractStyle(cache, true) }} />
+    ));
 
-  useServerInsertedHTML(() => {
-    return (
-        <>
-          <style id="antd" dangerouslySetInnerHTML={{ __html: extractStyle(antdCache) }}/>
-        </>
-    );
-  });
 
-  return (
-        <StyleProvider cache={antdCache}>
-          {render}
-        </StyleProvider>
-  );
+    return <StyleProvider cache={cache}>{children}</StyleProvider>;
 }
 
 export default AntdStyleRegistry;

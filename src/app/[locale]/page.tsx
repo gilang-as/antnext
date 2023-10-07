@@ -1,10 +1,8 @@
-import { useTranslations } from 'next-intl';
+import React from "react";
+import { redirect } from 'next/navigation'
 
-
-export default function Page() {
-  const t = useTranslations('site');
-
-  return (
-      <h1>AAA</h1>
-  );
+const Root : React.FC = ()  => {
+  redirect("/dashboard")
 }
+
+export default Root

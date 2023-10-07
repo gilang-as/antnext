@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import {Layout, Menu, theme} from "antd";
 import {FolderOutlined, HomeOutlined} from "@ant-design/icons";

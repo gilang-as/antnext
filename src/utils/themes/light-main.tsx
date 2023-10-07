@@ -1,9 +1,11 @@
 import type { ThemeConfig } from 'antd';
+import {theme} from "antd";
 
 const config: ThemeConfig = {
+    algorithm: theme.defaultAlgorithm,
     token: {
-        colorPrimary: '#b900a6',
-        colorBgContainer: '#fdedff',
+        "colorPrimary": "#00b96b",
+        "colorInfo": "#00b96b"
     },
 };
 

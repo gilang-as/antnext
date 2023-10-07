@@ -6,9 +6,10 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getTranslations } from 'next-intl/server';
 
-import ThemeProvider from '@/components/ThemeProvider';
+import LocaleProvider from '@/components/LocaleProvider';
 import AntdStyleRegistry from "@/utils/style-registry/antd";
 import EmotionStyleRegistry from "@/utils/style-registry/emotion";
+import {ThemesProvider} from "@/components/ThemesProvider";
 
 export default async function RootLayout({ children, params: { locale }}: { children: React.ReactNode; params: Record<string, any>; }) {
   let messages;
@@ -21,16 +22,15 @@ export default async function RootLayout({ children, params: { locale }}: { chil
     <html lang={locale}>
       <head />
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider locale={locale}>
-            <EmotionStyleRegistry>
-              <AntdStyleRegistry>
-                {/*<SiteHeader />*/}
-                <main>{children}</main>
-              </AntdStyleRegistry>
-            </EmotionStyleRegistry>
-          </ThemeProvider>
-        </NextIntlClientProvider>
+      <AntdStyleRegistry>
+        <EmotionStyleRegistry>
+          <ThemesProvider>
+            <LocaleProvider locale={locale} messages={messages}>
+                {children}
+            </LocaleProvider>
+          </ThemesProvider>
+        </EmotionStyleRegistry>
+      </AntdStyleRegistry>
       </body>
     </html>
   );

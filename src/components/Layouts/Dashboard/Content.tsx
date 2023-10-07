@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import {Alert, Breadcrumb, Button, Card, Col, Layout, Row, Space, Table, theme, Typography} from "antd";
 import {HomeOutlined, UserOutlined} from "@ant-design/icons";

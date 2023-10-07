@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import {Avatar, Badge, Dropdown, Layout, MenuProps, Space, theme} from "antd";
 import {useTheme} from "next-themes";

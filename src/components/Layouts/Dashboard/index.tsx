@@ -26,7 +26,7 @@ const PageLoader: React.FC = () => {
             color={token.colorPrimary}
             initialPosition={1}
             crawlSpeed={200}
-            height={2}
+            height={3}
             crawl={true}
             showSpinner={false}
             easing="ease"

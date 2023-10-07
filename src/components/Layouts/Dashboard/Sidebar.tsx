@@ -1,8 +1,10 @@
 'use client';
 
 import React from "react";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {Layout, Menu, theme} from "antd";
-import {FolderOutlined, HomeOutlined} from "@ant-design/icons";
+import {CloseSquareOutlined, HomeOutlined, TableOutlined} from "@ant-design/icons";
 import LogoAntNext from "@/icons/antnext";
 import {useTranslations} from "next-intl";
 
@@ -11,6 +13,19 @@ const { Sider} = Layout;
 const DashboardSidebar : React.FC = () => {
     const t = useTranslations('sidebar');
     const {token} = theme.useToken();
+
+    const fullPath = usePathname();
+    const currentPath = (): string[] | undefined => {
+        const paths = fullPath.split('/');
+        if(paths.length < 2) return undefined;
+        return [paths[paths.length - 1]];
+    }
+
+    const currentOpenKey = (): string[] | undefined => {
+        const paths = fullPath.split('/');
+        if(paths.length < 3) return undefined;
+        return [paths[paths.length - 2]];
+    }
 
     return (
         <Sider
@@ -39,61 +54,41 @@ const DashboardSidebar : React.FC = () => {
             >
                 <LogoAntNext/>
             </div>
-            <Menu mode="inline" defaultSelectedKeys={['dashboard']} items={[
+            <Menu mode="inline" defaultSelectedKeys={currentPath()} defaultOpenKeys={currentOpenKey()} items={[
                 {
                     icon: <HomeOutlined />,
                     key: 'dashboard',
-                    label: t('dashboard'),
+                    label: (<Link href="/dashboard">{t('dashboard')}</Link>),
                     title: t('dashboard'),
                 },
                 {
-                    icon: <FolderOutlined />,
-                    key: 'Dashboard',
-                    label: 'Dashboard',
-                    title: 'Dashboard',
+                    icon: <TableOutlined />,
+                    key: 'table',
+                    label: (<Link href="/table">{t('table')}</Link>),
+                    title: t('table'),
+                },
+                {
+                    icon: <CloseSquareOutlined />,
+                    key: 'errors',
+                    label: t('error'),
+                    title: t('error'),
                     children: [
                         {
-                            key: 'Form',
-                            label: 'Form',
-                            title: 'Form',
+                            key: '403',
+                            label: (<Link href="/errors/403">{t('error:403')}</Link>),
+                            title: t('error:403'),
                         },
                         {
-                            key: 'List',
-                            label: 'List',
-                            title: 'List',
+                            key: '404',
+                            label: (<Link href="/errors/404">{t('error:404')}</Link>),
+                            title: t('error:404'),
                         },
                         {
-                            key: 'User management',
-                            label: 'User management',
-                            title: 'User management',
+                            key: '500',
+                            label: (<Link href="/errors/500">{t('error:500')}</Link>),
+                            title: t('error:500'),
                         },
-                        {
-                            key: 'Result',
-                            label: 'Result',
-                            title: 'Result',
-                        },
-                    ],
-                },
-                {
-                    icon: <FolderOutlined />,
-                    key: 'Exception',
-                    label: 'Exception',
-                    title: 'Exception',
-                    children: [],
-                },
-                {
-                    icon: <FolderOutlined />,
-                    key: 'Account',
-                    label: 'Account',
-                    title: 'Account',
-                    children: [],
-                },
-                {
-                    icon: <FolderOutlined />,
-                    key: 'Editor',
-                    label: 'Editor',
-                    title: 'Editor',
-                    children: [],
+                    ]
                 },
             ]} />
         </Sider>

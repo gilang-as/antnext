@@ -37,7 +37,7 @@ const DashboardContent : React.FC<Props> = (props: Props) => {
                     ]}
                 />
             </div>
-            <div style={{ padding: 10, background: colorBgContainer, borderRadius: 5, minHeight: "90%" }}>
+            <div style={{ padding: 10, background: colorBgContainer, borderRadius: 5, height: "90%" }}>
                 {props.children}
             </div>
         </Content>

@@ -19,6 +19,7 @@
     "next": "latest",
     "next-intl": "2.15.0-beta.5",
     "next-themes": "^0.2.1",
+    "nextjs-toploader": "^1.4.2",
     "react": "latest",
     "react-dom": "latest"
   },

@@ -16,7 +16,7 @@ import IconNotificationRing from "@/icons/notification-ring";
 const { Header} = Layout;
 
 const DashboardNavbar : React.FC = () => {
-    const {token: {  colorBgContainer }} = theme.useToken();
+    const {token: {  colorPrimary, colorPrimaryBg, colorBgContainer, colorText, colorTextTertiary }} = theme.useToken();
     return(
         <Header
             style={{
@@ -34,16 +34,27 @@ const DashboardNavbar : React.FC = () => {
             <div style={{"display": "flex", "justifyContent": "space-between", "width": "100%"}}>
                 <div style={{"display": "flex", "alignItems": "center", "margin": "4px 0", "overflow": "hidden"}}>
                     <span style={{"boxSizing":"border-box", "marginRight": 12,"padding":"0","color":"#fff","fontSize":"14px","fontVariant":"tabular-nums","lineHeight":"32px","listStyle":"none","fontFeatureSettings":"\"tnum\"","position":"relative","display":"inline-block","overflow":"hidden","whiteSpace":"nowrap","textAlign":"center","verticalAlign":"middle","background":"#ccc","width":"32px","height":"32px","borderRadius":"50%"}}><img style={{display: "block", width: "100%", height: "100%", OObjectFit: "cover", objectFit: "cover"}} src="https://avatars1.githubusercontent.com/u/8186664?s=460&amp;v=4"/></span>
-                    <span style={{"marginRight": "12px", "marginBottom": "0", "color": "#000000d9", "fontWeight": "600", "fontSize": "20px", "lineHeight": "32px", "overflow": "hidden", "whiteSpace": "nowrap", "textOverflow": "ellipsis"}} title="Title">Title</span>
-                    <span style={{"marginRight": "12px", "color": "#00000073", "fontSize": "14px", "lineHeight": "1.5715", "overflow": "hidden", "whiteSpace": "nowrap", "textOverflow": "ellipsis"}} title="This is a subtitle">This is a subtitle</span>
+                    <span style={{"marginRight": "12px", "marginBottom": "0", "color": colorText, "fontWeight": "600", "fontSize": "20px", "lineHeight": "32px", "overflow": "hidden", "whiteSpace": "nowrap", "textOverflow": "ellipsis"}} title="Title">Title</span>
+                    <span style={{"marginRight": "12px", "color": colorTextTertiary, "fontSize": "14px", "lineHeight": "1.5715", "overflow": "hidden", "whiteSpace": "nowrap", "textOverflow": "ellipsis"}} title="This is a subtitle">This is a subtitle</span>
                 </div>
                 <div style={{"display": "flex", "alignItems": "center", "margin": "4px 0", "overflow": "hidden"}}>
                     <LocaleSwitcher/>
                     <ThemeToggle />
-                        <span style={{marginRight: 15, "width":"20px","height":"100%"}}>
-                            <IconNotificationRing/>
-                        </span>
-                    <ProfileToggle/>
+                    <span style={{marginRight: 15, "width":"20px","height":"100%"}}>
+                        <IconNotificationRing/>
+                    </span>
+
+                    <Dropdown menu={{ items }} trigger={['click']}>
+                        <a onClick={e => e.preventDefault()} style={{marginRight: 15}}>
+                            <Space>
+                                <Avatar style={{ color: colorPrimary, backgroundColor: colorPrimaryBg }} icon={<UserOutlined />} />
+                                <span style={{"color": colorText, "fontSize": "14px", "lineHeight": "1.5715", "overflow": "hidden", "whiteSpace": "nowrap", "textOverflow": "ellipsis"}}
+                                      title="Penguji Coba">
+                                    Penguji Coba
+                                </span>
+                            </Space>
+                        </a>
+                    </Dropdown>
                 </div>
             </div>
         </Header>
@@ -147,17 +158,3 @@ const items: MenuProps['items'] = [
         key: '3',
     },
 ];
-
-const ProfileToggle: React.FC = () => (
-    <Dropdown menu={{ items }} trigger={['click']}>
-        <a onClick={e => e.preventDefault()} style={{marginRight: 15}}>
-            <Space>
-                <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }} icon={<UserOutlined />} />
-                <span style={{"color": "#000", "fontSize": "14px", "lineHeight": "1.5715", "overflow": "hidden", "whiteSpace": "nowrap", "textOverflow": "ellipsis"}}
-                      title="Penguji Coba">
-                    Penguji Coba
-                </span>
-            </Space>
-        </a>
-    </Dropdown>
-);

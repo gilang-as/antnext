@@ -1,6 +1,6 @@
 
-import lightTheme from '@/utils/themes/light-main';
-import darkTheme from '@/utils/themes/dark-main';
+import lightTheme from '@/utils/themes/default-light';
+import darkTheme from '@/utils/themes/default-dark';
 export default {
     lightTheme,
     darkTheme

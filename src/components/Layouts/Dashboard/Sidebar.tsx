@@ -25,12 +25,6 @@ const DashboardSidebar : React.FC = () => {
             }}
             style={{
                 background: token.colorBgContainer,
-                // overflow: 'auto',
-                // height: '100vh',
-                // position: 'fixed',
-                // left: 0,
-                // top: 0,
-                // bottom: 0,
             }}
         >
 

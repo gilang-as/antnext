@@ -14,18 +14,24 @@
     "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@reduxjs/toolkit": "^1.9.7",
     "antd": "^5.9.4",
+    "axios": "^1.5.1",
     "next": "latest",
     "next-intl": "2.15.0-beta.5",
     "next-themes": "^0.2.1",
     "nextjs-toploader": "^1.4.2",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-if": "^4.1.5",
+    "react-redux": "^8.1.3",
+    "redux-logger": "^3.0.6"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/redux-logger": "^3.0.10",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "typescript": "latest"

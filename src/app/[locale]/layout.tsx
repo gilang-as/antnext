@@ -10,6 +10,7 @@ import LocaleProvider from '@/components/LocaleProvider';
 import AntdStyleRegistry from "@/utils/style-registry/antd";
 import EmotionStyleRegistry from "@/utils/style-registry/emotion";
 import {ThemesProvider} from "@/components/ThemesProvider";
+import Provider from "@/services/store";
 
 export default async function RootLayout({ children, params: { locale }}: { children: React.ReactNode; params: Record<string, any>; }) {
   let messages;
@@ -26,7 +27,9 @@ export default async function RootLayout({ children, params: { locale }}: { chil
         <EmotionStyleRegistry>
           <ThemesProvider>
             <LocaleProvider locale={locale} messages={messages}>
+              <Provider>
                 {children}
+              </Provider>
             </LocaleProvider>
           </ThemesProvider>
         </EmotionStyleRegistry>

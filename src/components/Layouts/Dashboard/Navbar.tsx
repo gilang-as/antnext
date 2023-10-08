@@ -1,7 +1,7 @@
 'use client';
 
 import React from "react";
-import {Avatar, Badge, Dropdown, Layout, MenuProps, Space, theme} from "antd";
+import {Avatar, Dropdown, Layout, MenuProps, Space, theme} from "antd";
 import {useTheme} from "next-themes";
 import { useTranslations } from 'next-intl';
 import IconTranslation from "@/icons/translation";

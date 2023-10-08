@@ -7,6 +7,7 @@ import {Layout, Menu, theme} from "antd";
 import {CloseSquareOutlined, HomeOutlined, TableOutlined} from "@ant-design/icons";
 import LogoAntNext from "@/icons/antnext";
 import {useTranslations} from "next-intl";
+import {MatchLanguage} from "@/utils/locale";
 
 const { Sider} = Layout;
 
@@ -19,6 +20,15 @@ const DashboardSidebar : React.FC = () => {
         const paths = fullPath.split('/');
         if(paths.length < 2) return undefined;
         return [paths[paths.length - 1]];
+    }
+
+    const withLocalePath = (destination: string): string => {
+        const paths = fullPath.split('/');
+        if(paths.length < 2) return destination;
+        if(MatchLanguage(paths[1])){
+            return `/${paths[1]}${destination}`;
+        }
+        return destination;
     }
 
     const currentOpenKey = (): string[] | undefined => {
@@ -58,13 +68,13 @@ const DashboardSidebar : React.FC = () => {
                 {
                     icon: <HomeOutlined />,
                     key: 'dashboard',
-                    label: (<Link href="/dashboard">{t('dashboard')}</Link>),
+                    label: (<Link href={withLocalePath("/dashboard")}>{t('dashboard')}</Link>),
                     title: t('dashboard'),
                 },
                 {
                     icon: <TableOutlined />,
                     key: 'table',
-                    label: (<Link href="/table">{t('table')}</Link>),
+                    label: (<Link href={withLocalePath("/table")}>{t('table')}</Link>),
                     title: t('table'),
                 },
                 {
@@ -75,17 +85,17 @@ const DashboardSidebar : React.FC = () => {
                     children: [
                         {
                             key: '403',
-                            label: (<Link href="/errors/403">{t('error:403')}</Link>),
+                            label: (<Link href={withLocalePath("/errors/403")}>{t('error:403')}</Link>),
                             title: t('error:403'),
                         },
                         {
                             key: '404',
-                            label: (<Link href="/errors/404">{t('error:404')}</Link>),
+                            label: (<Link href={withLocalePath("/errors/404")}>{t('error:404')}</Link>),
                             title: t('error:404'),
                         },
                         {
                             key: '500',
-                            label: (<Link href="/errors/500">{t('error:500')}</Link>),
+                            label: (<Link href={withLocalePath("/errors/500")}>{t('error:500')}</Link>),
                             title: t('error:500'),
                         },
                     ]

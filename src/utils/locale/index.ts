@@ -24,6 +24,11 @@ export const languages = {
   },
 };
 
+export const MatchLanguage = (locale: string) => {
+    return Object.keys(languages).includes(locale);
+}
+
+
 export type ILanguage = {
   [K in keyof typeof languages]: {
     name: string;

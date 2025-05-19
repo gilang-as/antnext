@@ -75,7 +75,7 @@ const ThemeToggle: React.FC = () => {
         {
             key: 'light',
             label: (
-                <div className="flex items-center">
+                <div style={{marginRight: 15, "height":"100%", "width":"100%", "display":"flex", "gap":"8px"}}>
                     <IconSun/>
                     <span>{t('light')}</span>
                 </div>
@@ -84,7 +84,7 @@ const ThemeToggle: React.FC = () => {
         {
             key: 'dark',
             label: (
-                <div className="flex items-center">
+                <div style={{marginRight: 15, "height": "100%", "width": "100%", "display": "flex", "gap": "8px"}}>
                     <IconMoon/>
                     <span>{t('dark')}</span>
                 </div>
@@ -93,8 +93,8 @@ const ThemeToggle: React.FC = () => {
         {
             key: 'system',
             label: (
-                <div className="flex items-center">
-                    <IconLaptop />
+                <div style={{marginRight: 15, "height": "100%", "width": "100%", "display": "flex", "gap": "8px"}}>
+                    <IconLaptop/>
                     <span>{t('system')}</span>
                 </div>
             ),

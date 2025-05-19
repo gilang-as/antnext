@@ -12,8 +12,8 @@
 		"error:500": "Internal Server Error"
 	},
 	"theme": {
-		"light": "light",
-		"dark": "dark",
-		"system": "system"
+		"light": "Light",
+		"dark": "Dark",
+		"system": "System"
 	}
 }

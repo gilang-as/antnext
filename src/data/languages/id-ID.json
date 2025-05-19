@@ -12,8 +12,8 @@
     "error:500": "Kesalahan Server"
   },
   "theme": {
-    "light": "terang",
-    "dark": "gelap",
-    "system": "sistem"
+    "light": "Terang",
+    "dark": "Gelap",
+    "system": "Sistem"
   }
 }

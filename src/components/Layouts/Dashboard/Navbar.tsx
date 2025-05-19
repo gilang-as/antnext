@@ -8,14 +8,15 @@ import IconTranslation from "@/icons/translation";
 import IconSun from "@/icons/sun";
 import IconMoon from "@/icons/moon";
 import IconLaptop from "@/icons/laptop";
-import {usePathname} from "next-intl/client";
+
+import {usePathname, Link} from '@/i18n/routing';
 import {languages} from "src/utils/locale";
-import Link from "next-intl/link";
 import {UserOutlined} from "@ant-design/icons";
 import IconNotificationRing from "@/icons/notification-ring";
 const { Header} = Layout;
 
 const DashboardNavbar : React.FC = () => {
+
     const {token: {  colorPrimary, colorPrimaryBg, colorBgContainer, colorText, colorTextTertiary }} = theme.useToken();
     return(
         <Header

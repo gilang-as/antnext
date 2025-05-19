@@ -3,7 +3,6 @@ import React from "react";
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getTranslations } from 'next-intl/server';
 
 import LocaleProvider from '@/components/LocaleProvider';
@@ -12,13 +11,17 @@ import EmotionStyleRegistry from "@/utils/style-registry/emotion";
 import {ThemesProvider} from "@/components/ThemesProvider";
 import Provider from "@/services/store";
 
-export default async function RootLayout({ children, params: { locale }}: { children: React.ReactNode; params: Record<string, any>; }) {
+export default async function RootLayout({ children, params}: { children: React.ReactNode; params: Record<string, any>; }) {
+
+  const { locale } = await params;
+
   let messages;
   try {
     messages = (await import(`@/data/languages/${locale}.json`)).default;
   } catch (error) {
     notFound();
   }
+
   return (
     <html lang={locale}>
       <head />
@@ -41,7 +44,7 @@ export default async function RootLayout({ children, params: { locale }}: { chil
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('site');
-  const locale = getLocale();
+  const locale = await getLocale();
   const title = t('title');
   const description = t('desc');
 
